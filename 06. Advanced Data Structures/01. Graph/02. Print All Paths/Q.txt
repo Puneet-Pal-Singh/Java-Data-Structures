@@ -1,0 +1,35 @@
+Print All Paths
+Question
+ 1. You are given a graph, a src vertex and a destination vertex.
+2. You are required to find and print all paths between src and dest. Print them in lexicographical order.
+e.g. check the following paths
+012546
+01256
+032546
+03256
+the lexicographically smaller path is printed first
+                               
+Input Format
+Input has been managed for you
+Output Format
+Check sample output
+Constraints
+None
+Sample Input
+7
+8
+0 1 10
+1 2 10
+2 3 10
+0 3 10
+4 5 10
+5 6 10
+4 6 10
+2 5 10
+0
+6
+Sample Output
+012546
+01256
+032546
+03256

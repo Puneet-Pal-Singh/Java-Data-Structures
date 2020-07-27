@@ -28,10 +28,24 @@ public class Main{
                     System.out.print("\t");
                 }
             }
-            max--;
+            max--;          
             
             System.out.println();
-        }    
+        }
+        /*
+        for(int floor = max; floor >= 1; floor--){          // max height for floor value where i == floor 
+            
+            for(int j = 0; j < n ; j++){                    // n or arr.length 
+                if(values[j] >= floor){
+                    System.out.print("*\t");
+                }else{
+                    System.out.print("\t");
+                }
+            }
+            
+            System.out.println();
+        }
+        */
             
      }
 }

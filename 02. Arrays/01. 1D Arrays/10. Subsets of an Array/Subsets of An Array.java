@@ -37,3 +37,21 @@ public class Main{
         }
     }
 }
+
+/*
+        Sample Input
+        3
+        10
+        20
+        30
+
+        Sample Output
+        -	-	-	
+        -	-	30	
+        -	20	-	
+        -	20	30	
+        10	-	-	
+        10	-	30	
+        10	20	-	
+        10	20	30	
+*/

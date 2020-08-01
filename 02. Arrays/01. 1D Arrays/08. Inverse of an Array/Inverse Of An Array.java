@@ -7,7 +7,7 @@ public class Main{
     
         for(int val: a){
             System.out.println(val);
-        //   sb.append(val + " ");
+        //   sb.append(val + "\n");
         }
         // System.out.println(sb);
       }

@@ -29,8 +29,14 @@ public class Main{
         if( k < 0 ){
             k = k + a.length;
         } 
-        reverse( a , a.length - k , a.length - 1);
+        
+        // Part 1  
         reverse( a , 0 , a.length - k - 1);
+        
+        // Part 2
+        reverse( a , a.length - k , a.length - 1);
+        
+        // All
         reverse( a , 0, a.length - 1);
     }
     

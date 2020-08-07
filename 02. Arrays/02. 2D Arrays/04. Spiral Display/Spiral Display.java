@@ -5,39 +5,76 @@ public class Main {
     
      public static void spiralDis(int[][] arr){
          
-        int rmin = 0, cmin = 0;
-        int rmax = arr.length-1 , cmax = arr[0].length-1;
-        int total_ele = arr.length * arr[0].length;
+        int minr = 0, minc = 0;
+        int maxr = arr.length-1 , maxc = arr[0].length-1;
+        int total_ele = arr.length * arr[0].length;         // n * m
         int c_ele = 0;
         
         while(c_ele < total_ele){
             
             //left wall
-            for(int i = rmin; i <= rmax && c_ele < total_ele; i++){
-                System.out.println(arr[i][cmin]);   c_ele++;
+            for(int i = minr; i <= maxr && c_ele < total_ele; i++){
+                System.out.println(arr[i][minc]);
+                c_ele++;
             }
-            cmin++;
+            minc++;
             
-            //bottomwall
-            for(int i = cmin; i <= cmax && c_ele < total_ele; i++){
-                System.out.println(arr[rmax][i]);   c_ele++;
+            //bottom wall
+            for(int i = minc; i <= maxc && c_ele < total_ele; i++){
+                System.out.println(arr[maxr][i]);   
+                c_ele++;
             }
-            rmax--;
+            maxr--;
             
             // rightwall
-            for(int i = rmax; i >= rmin && c_ele < total_ele; i--){
-                System.out.println(arr[i][cmax]);   c_ele++;
+            for(int i = maxr; i >= minr && c_ele < total_ele; i--){
+                System.out.println(arr[i][maxc]);   
+                c_ele++;
             }
-            cmax--;
+            maxc--;
             
             // topwall
-            for(int i = cmax; i >= cmin && c_ele < total_ele; i--){
-                System.out.println(arr[rmin][i]);   c_ele++;
+            for(int i = maxc; i >= minc && c_ele < total_ele; i--){
+                System.out.println(arr[minr][i]);   
+                c_ele++;
             }
-            rmin++;
+            minr++;
         }
-    }
 
+
+        /*
+        while(c_ele < total_ele){
+            
+            //left wall
+            for(int i = minr, j = minc; i <= maxr && c_ele < total_ele; i++){
+                System.out.println(arr[i][j]);
+                c_ele++;
+            }
+            minc++;
+            
+            //bottom wall
+            for(int i = maxr, j = minc; j <= maxc && c_ele < total_ele; j++){
+                System.out.println(arr[i][j]);   
+                c_ele++;
+            }
+            maxr--;
+            
+            // rightwall
+            for(int i = maxr, j = maxc; i >= minr && c_ele < total_ele; i--){
+                System.out.println(arr[i][j]);   
+                c_ele++;
+            }
+            maxc--;
+            
+            // topwall
+            for(int i = minr, j = maxc; j >= minc && c_ele < total_ele; j--){
+                System.out.println(arr[i][j]);   
+                c_ele++;
+            }
+            minr++;
+        }
+        */
+    }
 
     public static void main(String[] args) throws Exception {
         // write your code here

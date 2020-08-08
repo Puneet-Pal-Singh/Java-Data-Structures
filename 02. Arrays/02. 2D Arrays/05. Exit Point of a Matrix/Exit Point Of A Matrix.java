@@ -12,30 +12,40 @@ public class Main {
             dir += arr[r][c];
             dir = dir % 4;
             
-            if(dir == 0){
+            if(dir == 0){       // East
                 c++;
-            }else if(dir==1){
+            }else if(dir==1){   // South
                 r++;
-            }else if(dir==2){
+            }else if(dir==2){   // West 
                 c--;
-            }else{
+            }else if(dir==3){   // North
                 r--;
             }
             
+            /* 
             if(r < 0 || r == arr.length || c < 0 || c == arr[0].length){
                 break; // this will when will loop stops
             }
-        }
+            */
         
-        if( r < 0){
-            r++;
-        }else if(c < 0){
-            c++;
-        }else if(r == arr.length){
-            r--;
-        }else if(c == arr[0].length){
-            c--;
-        }
+
+            if( r < 0){
+                r++;              
+                break;
+            }else if(c < 0){
+                c++;
+                break;
+            }else if(r == arr.length){
+                r--;
+                break;
+            }else if(c == arr[0].length){
+                c--;
+                break;
+            }
+            // as pointer will first exit and then print exited and we have to print the exited point 
+            // therefore for telling the last pointer we are adjusting by inc or dec "r" and "c"
+        }    
+        
         System.out.println(r);
         System.out.println(c);
     }

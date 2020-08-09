@@ -5,6 +5,31 @@ public class Main {
     
     public static void saddlePoint( int[][] arr ){
         for( int i = 0; i < arr.length; i++ ){
+            int lvj = 0;                    // lowest value j in row
+            int min = arr[i][lvj];
+            
+            for( int j = 1 ; j < arr[0].length ; j++ ){     // checking min value in row
+                if( arr[i][j] < min ){
+                    min = arr[i][j]; 
+                    lvj = j;
+                }
+            }
+            
+            boolean flag = true;                // checking maximum value in column
+            for( int r = 0 ; r < arr.length ; r++ ){
+                if( arr[r][lvj] > min ){
+                    flag = false;
+                    break;
+                }
+            }
+            
+            if( flag == true ){
+                System.out.println(min);
+                return;
+            }
+        }
+        /*
+        for( int i = 0; i < arr.length; i++ ){
             int min = arr[i][0];
             int col = 0;
             
@@ -27,6 +52,7 @@ public class Main {
                 return;
             }
         }
+        */
         System.out.println("Invalid input");
     }
     

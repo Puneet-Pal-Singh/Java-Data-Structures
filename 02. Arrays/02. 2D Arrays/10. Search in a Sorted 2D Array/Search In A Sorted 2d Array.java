@@ -5,8 +5,10 @@ public class Main {
     
     public static void searchIn2D( int[][] arr , int data ){
         
-        int i = 0 , j = arr[0].length - 1;
-        while( i >= 0 && i < arr.length && j >= 0 && j < arr[0].length ){
+        int i = 0;
+        int j = arr[0].length - 1;
+        
+        while( i < arr.length && j >= 0  ){      // while( i >= 0 && i < arr.length && j >= 0 && j < arr[0].length ){
             if( arr[i][j] == data ){
                 System.out.println(i);
                 System.out.println(j);

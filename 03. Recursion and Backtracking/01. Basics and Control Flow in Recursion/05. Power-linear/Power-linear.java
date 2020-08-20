@@ -9,8 +9,8 @@ public class Main {
         int x = scn.nextInt();
         int n = scn.nextInt();
         
-        int xrn = power(x, n);
-        System.out.println(xrn); //x raise to n
+        int xn = power(x, n);       //x raise to n
+        System.out.println(xn); 
     }
 
     public static int power(int x, int n){
@@ -18,9 +18,9 @@ public class Main {
             return 1;
         }
         
-        int xrn_m_1 = power(x , n - 1);
-        int xrn = xrn_m_1 * x;
-        return xrn;
+        int xnm1 = power(x , n - 1);        //x raise to n - 1
+        int xn = xnm1 * x;
+        return xn;
     }
 }
 

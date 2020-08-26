@@ -26,11 +26,13 @@ public class Main {
             return arr[idx];
         }
         
-        int nextMax = maxOfArray( arr, idx + 1);
-        if( nextMax < arr[idx] ){
+        int misa = maxOfArray( arr, idx + 1);       //Max in Smaller Array
+        if( misa > arr[idx] ){
+            return misa;
+        }
+        else{
             return arr[idx];
         }
-        return nextMax;
     }
 }
 

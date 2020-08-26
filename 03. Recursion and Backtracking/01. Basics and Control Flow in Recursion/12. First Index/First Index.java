@@ -36,7 +36,7 @@ public class Main {
         if (arr[idx] == x) {
             return idx;
         } else {
-            int fiisa = firstIndex(arr, idx + 1, x);
+            int fiisa = firstIndex(arr, idx + 1, x);        // First Index in Smaller Array
             return fiisa;
         }
 

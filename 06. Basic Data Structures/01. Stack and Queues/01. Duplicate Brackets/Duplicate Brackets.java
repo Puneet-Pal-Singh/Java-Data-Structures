@@ -5,15 +5,15 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         Scanner scn = new Scanner(System.in);
-        String exp = scn.nextLine();
-        System.out.println( isDup( exp ) );
+        String str = scn.nextLine();
+        System.out.println( isDuplicate( str ) );
     }
     
-    public static boolean isDup( String exp ){
+    public static boolean isDuplicate( String str ){
         Stack<Character> st = new Stack<>();
         
-        for( int i = 0; i < exp.length() ; i++ ){
-            char ch = exp.charAt(i);
+        for( int i = 0; i < str.length() ; i++ ){
+            char ch = str.charAt(i);
             
             if( ch == ')' ){
                 if( st.peek() == '(' ){

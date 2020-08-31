@@ -23,7 +23,7 @@ public class Main{
         int[] nge = solve(a);
         display(nge);
     }
-
+/*
     public static int[] solve(int[] arr){
     // solve
    
@@ -48,6 +48,32 @@ public class Main{
         }
         return ans;
     }
+*/
+    
+    public static int[] solve(int[] arr){
+    // solve
+   
+        int[] ans = new int[arr.length];
+        Stack<Integer> st = new Stack<>();
+
+        ans[arr.length - 1] = -1;
+        st.push(arr[arr.length - 1]);
+        
+        for( int i = arr.length - 2 ; i >= 0 ; i-- ){
+            
+            while( st.size() > 0 && st.peek() <= arr[i] ){
+                st.pop();
+            }     
+            if(st.size() == 0){
+                ans[i] = -1;
+            } else {
+                ans[i] = st.peek();
+            }
+          
+            st.push( arr[i] );
+        }
+        return ans;
+    }
 
 }
 /*
@@ -56,5 +82,4 @@ public class Main{
     
     Sample Output
     5 9 12 12 12 -1 8 -1 -1
-
 */

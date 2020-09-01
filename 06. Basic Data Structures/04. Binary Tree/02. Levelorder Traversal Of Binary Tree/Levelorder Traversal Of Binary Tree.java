@@ -82,7 +82,7 @@ public class Main {
     public static void levelOrder(Node node) {
         // write your code here
         
-        Queue < Node > qu = new LinkedList < > ();
+        Queue < Node > qu = new LinkedList < > ();              // LinkedList
         qu.add(node);
 
         while (qu.size() > 0) {
@@ -102,6 +102,30 @@ public class Main {
             }
             System.out.println();
         }
+        
+        /*
+        
+        Queue < Node > qu = new ArrayDeque < > ();              // ArrayDeque
+        qu.add(node);
+
+        while (qu.size() > 0) {
+            int cs = qu.size();     // current size
+
+            for (int i = 0; i < cs ; i++) {
+                node = qu.remove();           
+                System.out.print(node.data + " ");    
+
+                if (node.left != null) {
+                    qu.add(node.left);
+                }
+                if (node.right != null) {
+                    qu.add(node.right);
+                }
+            }
+            System.out.println();
+        }
+        
+        */
     }
 
     public static void main(String[] args) throws Exception {

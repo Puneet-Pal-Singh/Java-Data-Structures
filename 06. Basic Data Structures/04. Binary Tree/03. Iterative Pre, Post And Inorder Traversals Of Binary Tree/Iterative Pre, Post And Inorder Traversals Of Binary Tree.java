@@ -81,53 +81,85 @@ public class Main {
 
     public static void iterativePrePostInTraversal(Node node) {
         // write your code here
-        
+
         Stack < Pair > st = new Stack < > ();
-        Pair rp = new Pair(node, 0);        // root pair
-        st.push(rp);
-        
+        Pair rtp = new Pair(node, 1); // root pair
+        st.push(rtp);
+
         String pre = "";
         String post = "";
         String in = "";
         
+        /*
+                while (st.size() > 0) {
+                    Pair cp = st.peek(); // current pair
+
+                    if (cp.state == 0) {
+                        // pre
+
+                        pre += cp.node.data + " ";
+                        cp.state++;
+                    } else if (cp.state == 1) {
+                        // left
+
+                        if (cp.node.left != null) {
+                            st.push(new Pair(cp.node.left, 0));
+                        }
+                        cp.state++;
+                    } else if (cp.state == 2) {
+                        // in
+
+                        in += cp.node.data + " ";
+                        cp.state++;
+                    } else if (cp.state == 3) {
+                        // right
+
+                        if (cp.node.right != null) {
+                            st.push(new Pair(cp.node.right, 0));
+                        }
+                        cp.state++;
+                    } else {
+                        // post
+
+                        post += cp.node.data + " ";
+                        st.pop();
+                    }
+                }
+        */
+
+
         while (st.size() > 0) {
-            Pair cp = st.peek();            // current pair
-            
-            if (cp.state == 0) {
-                // pre
-                
-                pre += cp.node.data + " ";
-                cp.state++;
-            } 
-            else if (cp.state == 1) {
-                // left
-                
-                if (cp.node.left != null){
-                    st.push(new Pair(cp.node.left, 0));
+            Pair top = st.peek();
+
+            if (top.state == 1) {
+                // PRE , state++ , left
+
+                pre += top.node.data + " ";
+                top.state++;
+
+                if (top.node.left != null) {
+                    Pair lp = new Pair(top.node.left, 1); // left Pair 
+                    st.push(lp);
                 }
-                cp.state++;
-            } 
-            else if (cp.state == 2) {
-                // in
-                
-                in += cp.node.data + " ";
-                cp.state++;
-            } 
-            else if (cp.state == 3) {
-                // right
-                
-                if (cp.node.right != null){
-                    st.push(new Pair(cp.node.right, 0));
+            } else if (top.state == 2) {
+                // IN , state++, right
+
+                in += top.node.data + " ";
+                top.state++;
+
+                if (top.node.right != null) {
+                    Pair rp = new Pair(top.node.right, 1); // right Pair 
+                    st.push(rp);
                 }
-                cp.state++;
-            } 
-            else {
-                // post
-                
-                post += cp.node.data + " ";
+            } else {
+                // Post , pop
+
+                post += top.node.data + " ";
                 st.pop();
             }
         }
+
+
         System.out.println(pre);
         System.out.println( in );
         System.out.println(post);

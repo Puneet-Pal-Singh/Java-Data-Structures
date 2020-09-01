@@ -86,10 +86,10 @@ public class Main {
             return 0;
         }
         
-        int mysize = 0;
-        mysize += size( node.left );
-        mysize += size( node.right );
-        return mysize + 1;
+        int leftSize = size( node.left );
+        int rightSize = size( node.right );
+        int totalSize = leftSize + rightSize + 1;
+        return totalSize;
     }
 
     public static int sum(Node node) {
@@ -99,11 +99,10 @@ public class Main {
             return 0;
         }
         
-        int mysum = 0;
-        mysum += sum( node.left );
-        mysum += sum( node.right );
-        mysum += node.data;
-        return mysum;
+        int leftSum = sum( node.left );
+        int rightSum = sum( node.right );
+        int totalSum = leftSum + rightSum + node.data;
+        return totalSum;
     }
 
     public static int max(Node node) {
@@ -115,21 +114,21 @@ public class Main {
         
         int leftMax = max( node.left );
         int rightMax = max( node.right );
-        int myMax = Math.max( node.data , Math.max( leftMax, rightMax ) );
-        return myMax;
+        int totalMax = Math.max( node.data , Math.max( leftMax, rightMax ) );
+        return totalMax;
     }
 
     public static int height(Node node) {
         // write your code here
         
         if ( node == null ) {
-            return -1;
+            return -1;          // -1 for edges, 0 for nodes
         }
         
         int lh = height( node.left );
         int rh = height( node.right );
-        int myh = Math.max( lh, rh ) + 1;
-        return myh;
+        int th = Math.max( lh, rh ) + 1;
+        return th;
     }
 
     public static void main(String[] args) throws Exception {

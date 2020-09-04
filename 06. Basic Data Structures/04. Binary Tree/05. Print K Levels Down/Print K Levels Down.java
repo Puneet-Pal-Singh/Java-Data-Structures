@@ -82,7 +82,7 @@ public class Main {
     public static void printKLevelsDown(Node node, int k) {
         // write your code here
         
-        if (node == null){
+        if (node == null || k < 0){
             return;
         }
         else if (k == 0) {

@@ -79,19 +79,40 @@ public class Main {
         display(node.right);
     }
 
-    public static Node createLeftCloneTree(Node temp) {
-        if (temp == null){
+    // Pre Order    
+    /*
+        public static Node createLeftCloneTree(Node temp) {
+            if (temp == null){
+                return temp;
+            }
+            
+            Node copy = new Node(temp.data, null, null);
+            copy.left = temp.left;
+            temp.left = copy;
+            
+            createLeftCloneTree(copy.left);         // temp.left.left
+            createLeftCloneTree(temp.right);
+            
             return temp;
         }
-        
-        Node copy = new Node(temp.data, null, null);
-        copy.left = temp.left;
-        temp.left = copy;
-        
-        createLeftCloneTree(copy.left);         // temp.left.left
-        createLeftCloneTree(temp.right);
-        
-        return temp;
+    */
+
+
+    // Post Order - 
+
+    public static Node createLeftCloneTree(Node node) {
+        if (node == null) {
+            return null;
+        }
+
+        Node leftCTree = createLeftCloneTree(node.left); // temp.left.left
+        Node rightCTree = createLeftCloneTree(node.right);
+
+        Node newNode = new Node(node.data, leftCTree, null);
+        node.left = newNode;
+        node.right = rightCTree;
+
+        return node;
     }
 
 

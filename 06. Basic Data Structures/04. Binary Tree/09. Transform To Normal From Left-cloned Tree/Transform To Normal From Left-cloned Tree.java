@@ -78,7 +78,7 @@ public class Main {
         display(node.left);
         display(node.right);
     }
-
+/*
     public static Node transBackFromLeftClonedTree(Node temp) {
         // write your code here
         
@@ -103,11 +103,29 @@ public class Main {
         
         temp.left = copy.left;
         copy.left = null;
-        */
+        *
         
         return temp;
     }
-
+*/
+    public static Node transBackFromLeftClonedTree(Node node) {
+        // write your code here
+        
+        if( node == null ){
+            return null;
+        }
+        
+        // post
+        
+        Node leftNode = transBackFromLeftClonedTree(node.left.left);         // left normalised node
+        Node rightNode = transBackFromLeftClonedTree(node.right);
+        
+        node.left = leftNode;
+        node.right = rightNode;
+        
+        return node;
+    }
+    
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());

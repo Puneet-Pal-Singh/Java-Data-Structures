@@ -95,21 +95,33 @@ public class Main {
     public static int tilt(Node node) {
         // write your code here to set the tilt data member
 
-        if (node == null){
+        if (node == null) {
             return 0;
         }
+        // it will return left sum and change tilt for left side 
+        int lsum = tilt(node.left); 
+        // it will return right sum and change tilt for right side
+        int rsum = tilt(node.right); 
+
+        // Style1
+        /*
+            int abDif = 0;          // absolute difference
+            if (lsum > rsum){
+                abDif = lsum - rsum;
+            }else{
+                abDif = rsum - lsum;
+            }
+            tilt += abDif;
+            return lsum + rsum + node.data;
+        */
+
+        // Style2
+
+        int ltilt = Math.abs(lsum - rsum); // local tilt      
+        tilt += ltilt;
         
-        int lsum = tilt(node.left);     // left sum
-        int rsum = tilt(node.right);    // right sum
-        
-        int abDif = 0;          // absolute difference
-        if (lsum > rsum){
-            abDif = lsum - rsum;
-        }else{
-            abDif = rsum - lsum;
-        }
-        tilt += abDif;
-        return lsum + rsum + node.data;
+        int totalsum = lsum + rsum + node.data;
+        return totalsum;
     }
 
     public static void main(String[] args) throws Exception {

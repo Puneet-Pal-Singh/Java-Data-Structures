@@ -79,20 +79,60 @@ public class Main {
         display(node.right);
     }
 
+    // Approach 1 - Travel and Change
+/*
+    static boolean isBal = true;
+    public static int isBalanced(Node node) {
+        if (node == null) {
+            return 0; // 0 for nodes and -1 for edges
+        }
+
+        int lh = isBalanced(node.left); // left height
+        int rh = isBalanced(node.right); // right height
+
+        int gap = Math.abs(lh - rh);
+        if (gap > 1) {
+            isBal = false;
+        }
+
+        int th = Math.max(lh, rh) + 1; // total height
+        return th;
+    }
+*/
+    
+    // Approach 2 - Using Pair Class
+
+    // Either initiate variables in class or in base class both works
     static class pair {
-        int ht = -1;
-        boolean isbal = true;
+
+        // int ht = 0;     // 0 for nodes , -1 for edges
+        // boolean isbal = true;
+
+        int ht; // 0 for nodes , -1 for edges
+        boolean isbal;
+
     }
 
     public static pair isTreeBalancedHelper(Node node) {
+        // if (node == null) {
+        //    return new pair();
+        // }
+
         if (node == null) {
-            return new pair();
+            pair bp = new pair();
+            bp.ht = 0;
+            bp.isbal = true;
+            return bp;
         }
+
         pair lans = isTreeBalancedHelper(node.left);
         pair rans = isTreeBalancedHelper(node.right);
 
         pair myAns = new pair();
-        myAns.isbal = lans.isbal && rans.isbal && (lans.ht - rans.ht >= -1 && lans.ht - rans.ht <= 1);
+
+        // myAns.isbal = lans.isbal && rans.isbal && (lans.ht - rans.ht >= -1 && lans.ht - rans.ht <= 1);
+
+        myAns.isbal = Math.abs(lans.ht - rans.ht) <= 1 && lans.isbal && rans.isbal;
 
         myAns.ht = Math.max(lans.ht, rans.ht) + 1;
 
@@ -122,7 +162,12 @@ public class Main {
 
         // write your code here
 
+        // for pair class output
         System.out.println(isTreeBalanced(root));
+
+        // for travel and change output
+        // isBalanced(root);
+        // System.out.println(isBal);
     }
 
 }

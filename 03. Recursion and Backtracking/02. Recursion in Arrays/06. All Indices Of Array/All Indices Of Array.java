@@ -26,7 +26,9 @@ public class Main {
 
     public static int[] allIndices(int[] arr, int x, int idx, int count) {
         // write ur code here
-
+        
+        // count = indices found so far
+        
         if (idx == arr.length) {
             return new int[count];
         }

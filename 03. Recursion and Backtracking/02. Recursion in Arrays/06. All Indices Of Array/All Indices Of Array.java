@@ -14,36 +14,52 @@ public class Main {
         int x = Integer.parseInt(br.readLine());
         int[] iarr = allIndices(arr, x, 0, 0);
 
-        if(iarr.length == 0){
+        if (iarr.length == 0) {
             System.out.println();
             return;
         }
 
-        for(int i = 0; i < iarr.length; i++){
+        for (int i = 0; i < iarr.length; i++) {
             System.out.println(iarr[i]);
         }
     }
 
-    public static int[] allIndices(int[] arr, int x, int idx, int count){
+    public static int[] allIndices(int[] arr, int x, int idx, int count) {
         // write ur code here
-        
-        if(idx == arr.length){
-            int[] baseAns = new int[count];
-            return baseAns;
+
+        if (idx == arr.length) {
+            return new int[count];
         }
-        
-        // Pre part 
-        if( arr[idx] == x ){
-            count++;
+
+        if (arr[idx] == x) {
+            int[] ans = allIndices(arr, x, idx + 1, count + 1);
+            ans[count] = idx;
+            return ans;
+        } else {
+            int[] ans = allIndices(arr, x, idx + 1, count);
+            return ans;
         }
-        
-        int[] ans = allIndices( arr, x, idx + 1, count );
-        
-        // Post Part
-        if( arr[idx] == x){
-            ans[count - 1 ] = idx;
-        }
-        return ans;
+
+        /*
+            if(idx == arr.length){
+                int[] baseAns = new int[count];
+                return baseAns;
+            }
+            
+            // Pre part 
+            if( arr[idx] == x ){
+                count++;
+            }
+            
+            int[] ans = allIndices( arr, x, idx + 1, count );
+            
+            // Post Part
+            if( arr[idx] == x){
+                ans[count - 1 ] = idx;
+            }
+            return ans;
+        */
+
     }
 }
 

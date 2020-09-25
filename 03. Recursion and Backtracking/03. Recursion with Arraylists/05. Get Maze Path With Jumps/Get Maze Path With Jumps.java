@@ -18,6 +18,7 @@ public class Main {
     // sc - source column
     // dr - destination row
     // dc - destination column
+    // move -> move size like h1, h2, h3 and v1, v2, v3 and d1, d2, d3
     public static ArrayList < String > getMazePaths(int sr, int sc, int dr, int dc) {
         // if (sr > dr || sc > dc) {
         //     return new ArrayList < > ();

@@ -66,6 +66,5 @@ public class Main {
 	    Output---
 	    
 	    hv
-        vh
-
-	*/
+            vh
+*/

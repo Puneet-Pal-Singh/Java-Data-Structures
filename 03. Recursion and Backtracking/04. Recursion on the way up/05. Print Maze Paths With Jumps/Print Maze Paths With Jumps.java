@@ -24,16 +24,22 @@ public class Main {
         
         // horizontal jumps
         for( int jump = 1; sc + jump <= dc ; jump++){
+        // for( int jump = 1; jump <= dc - sc; jump++){
+            
             printMazePaths( sr , sc + jump, dr, dc , psf + 'h' + jump );
         }
         
         // vertical jumps
         for( int jump = 1; sr + jump <= dr ; jump++){
+        // for( int jump = 1; jump <= dr - sr; jump++){ 
+            
             printMazePaths( sr + jump , sc, dr, dc , psf + 'v' + jump );
         }
         
         // diagonal jumps
         for( int jump = 1; sr + jump <= dr && sc + jump <= dc ; jump++){
+        // for( int jump = 1; jump <= dr - sr && jump <= dc - sc; jump++){ 
+            
             printMazePaths( sr + jump , sc + jump, dr, dc , psf + 'd' + jump );
         }
     }

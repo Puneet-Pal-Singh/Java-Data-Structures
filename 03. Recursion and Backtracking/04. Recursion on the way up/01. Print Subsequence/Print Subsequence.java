@@ -20,15 +20,15 @@ public class Main {
     public static void printSS(String ques, String ans) {
         
         if(ques.length() == 0 ){
-            if( ans.length() != 0 )
+            // if( ans.length() != 0 )
             System.out.println(ans);
             return;
         }
         char ch = ques.charAt(0); //  0th index character
         String roq = ques.substring( 1 );  // rest of qs than 0th index
     
-        printSS( roq , ans );
-        printSS( roq, ans + ch );
+        printSS( roq, ans + ch);
+        printSS( roq, ans + "");
     }
 
 }
@@ -40,12 +40,12 @@ public class Main {
         
         Sample Output
         
-        c
-        b
-        bc
-        a
-        ac
-        ab
         abc
+        ab
+        ac
+        a
+        bc
+        b
+        c
 
 */

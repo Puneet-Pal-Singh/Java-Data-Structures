@@ -6,19 +6,24 @@ public class Main {
     public static void main(String[] args) throws Exception {
         Scanner scn = new Scanner(System.in);
         String str = scn.nextLine();
-        printPermutations( str, "");
+        printPermutations(str, "");
     }
 
     public static void printPermutations(String ques, String ans) {
-        if( ques.length() == 0 ){
+        if (ques.length() == 0) {
             System.out.println(ans);
             return;
         }
-        for( int i = 0 ; i < ques.length() ; i++ ){
+        for (int i = 0; i < ques.length(); i++) {
             char ch = ques.charAt(i);
-            String roq = ques.substring( 0 , i ) + ques.substring( i + 1);
-            
-            printPermutations( roq, ans + ch);
+
+            // String qlpart = ques.substring(0, i);    // from 0 to i-1
+            // String qrpart = ques.substring(i + 1);   // from i to end
+            // String roq = qlpart + qrpart;
+
+            String roq = ques.substring(0, i) + ques.substring(i + 1);
+
+            printPermutations(roq, ans + ch);
         }
     }
 

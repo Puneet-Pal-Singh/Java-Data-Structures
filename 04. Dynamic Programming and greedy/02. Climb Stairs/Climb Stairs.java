@@ -33,7 +33,7 @@ public class Main {
     }
     */
     
-    // Meoisation
+    // Memoisation
     
     public static int sp(int n , int[] strg){
         if(n == 0){
@@ -57,7 +57,7 @@ public class Main {
         return ans;
     }
     
-    // Tabulaion
+    // Tabulation
     public static int countStairsPath(int n){
         int[] strg = new int[n+1];
         strg[0] = 1;

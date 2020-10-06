@@ -9,36 +9,35 @@ public class Main {
         int n = scn.nextInt();
 
         // Recursion
-        int count = countPathsR(n);
+        // int ans = countPathsR(n);
 
         // Memoisation
-        // int count = countPaths(n, new int[n + 1]);
+        // int ans = countPaths(n, new int[n + 1]);
         // int[] strg = new int[n + 1];
 
         // Tabulation
-        // int ans = countPathsTab(n);
+        int ans = countPathsTab(n);
 
-        System.out.println(count);
+        System.out.println(ans);
     }
 
     //Simple Recursion
-    
+
     public static int countPathsR(int n) {
         if (n == 0) {
             return 1;
         } else if (n < 0) {
             return 0;
         }
-        
+
         // System.out.println("Hello" + n);
         int nm1 = countPathsR(n - 1);
         int nm2 = countPathsR(n - 2);
         int nm3 = countPathsR(n - 3);
         int ans = nm1 + nm2 + nm3;
-        
+
         return ans;
     }
-    
 
     // Memoisation
 
@@ -62,7 +61,6 @@ public class Main {
         strg[n] = ans;
         return ans;
     }
-
 
     // Tabulation
     public static int countPathsTab(int n) {
@@ -103,18 +101,4 @@ public class Main {
         return dp[n];
     }
 
-
 }
-
-
-/*
-        Input---
-        
-        4
-        
-        
-        Output---
-        
-        7
-
-*/

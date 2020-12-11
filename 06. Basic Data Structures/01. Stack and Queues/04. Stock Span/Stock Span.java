@@ -34,7 +34,7 @@ public class Main{
         */
         
         for (int i = 0; i < arr.length; i++) {
-            while(st.size() > 0 && arr[st.peek()] <= arr[i] ){
+            while( st.size() > 0 && arr[i] >= arr[st.peek()] ){
                 st.pop();
             }
             if(st.size() == 0){
@@ -54,5 +54,6 @@ public class Main{
     9 2 5 9 3 1 12 6 8 7
     
     Sample Output
-    1 2 3 1 1 6 1 2 1
+    1 2 3 1 1 6 1 2 1       1
+
 */
